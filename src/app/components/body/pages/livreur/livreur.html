@@ -1,0 +1,14 @@
+
+<!-- @if(liste){
+    <h1 style="text-align: center;">Liste des livreur</h1>
+    <button type="button" (click)="affichageForm()" class="btn btn-secondary w-50" style="display: block; margin: 0 auto;">Ajout livreur</button>
+    <app-liste-livreur [livreurAjoute]="livreur"></app-liste-livreur>
+}
+@else {
+    <h1 style="text-align: center;">AJout des livreur</h1>
+    <button type="button" (click)="affichageListe()" class="btn btn-secondary w-50" style="display: block; margin: 0 auto;">Liste livreur</button>
+    <app-ajout-livreur (livreurEmitter)="recupererLivreAjouter($event)"></app-ajout-livreur>
+} -->
+
+<router-outlet/>
+

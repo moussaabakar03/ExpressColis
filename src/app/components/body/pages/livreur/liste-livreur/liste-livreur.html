@@ -1,0 +1,49 @@
+<div class="main-panel">
+    <div class="content-wrapper">
+        <div class="row">
+            <div class="col-lg-12 grid-margin stretch-card">
+                <div class="card">
+                    <div class="card-body">
+                        <h4 class="card-title">Liste des livreurs</h4>
+                        <p class="card-description">
+                            Tableau des informations des livreurs
+                        </p>
+                        <div class="table-responsive">
+                            <table class="table table-striped">
+                                <thead>
+                                    <tr>
+                                        <th scope="col">#</th>
+                                        <th scope="col">Matricule</th>
+                                        <th scope="col">Nom</th>
+                                        <th scope="col">Prénom</th>
+                                        <th scope="col">Téléphone</th>
+                                        <th scope="col">Adresse</th>
+                                        <th scope="col">email</th>
+                                        <th scope="col" class="text-center">Actions</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    @for (item of listeLivreurs; track item.id) {
+                                        <tr>
+                                            <td class="py-1">{{item.id}}</td>
+                                            <td>{{ item.matricule }}</td>
+                                            <td>{{ item.nom }}</td>
+                                            <td>{{ item.prenom }}</td>
+                                            <td>{{ item.telephone }}</td>
+                                            <td>{{ item.adresse }}</td>
+                                            <td>{{ item.email }}</td>
+                                            <td class="text-center">
+                                                <button class="btn btn-sm btn-primary">Modifier</button>
+                                                <button class="btn btn-sm btn-danger" (click)="delete(item)">Supprimer</button>
+                                            </td>
+                                        </tr>
+                                    }
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,61 @@
+<div class="main-panel">        
+    <div class="content-wrapper">
+        <div class="row">
+            <div class="col-12 grid-margin stretch-card">
+                <div class="card">
+                    <div class="card-body">
+                        <h4 class="card-title">Formulaire Livreur </h4>
+                        <p class="card-description">
+                            Veuillez remplir les informations ci-dessous ({{ livreur.nom }})
+                        </p>
+                        <form class="forms-sample" (ngSubmit)="traitementFormulaire()">
+                            <!-- Champ Nom -->
+                            <div class="form-group">
+                                <label for="inputNom">Nom </label>
+                                <input type="text" class="form-control" id="inputNom" name="nom" [(ngModel)]="livreur.nom" placeholder="Entrez votre nom">
+                                <!-- @if (form.submitted && livreur.nom.length < 2) {
+                                    <div>Le nom doit contenir plus de 2 caractère</div>
+                                } -->
+                            </div>
+
+                            <!-- Champ Prénom -->
+                            <div class="form-group">
+                                <label for="inputPrenom">Prénom</label>
+                                <input type="text" class="form-control" id="inputPrenom" name="prenom" [(ngModel)]="livreur.prenom" placeholder="Entrez votre prénom">
+                                 <!-- @if (form.submitted && livreur.prenom.length < 2) {
+                                    <div>Le prenom doit contenir plus de 2 caractère</div>
+                                } -->
+                            </div>
+                            <!-- Champ Adresse -->
+                            <div class="form-group">
+                                <label for="Matricule">Matricule</label>
+                                <input type="text" class="form-control" id="Matricule" name="matricule" [(ngModel)]="livreur.matricule" placeholder="Entrez votre adresse">
+                            </div>
+                            <div class="form-group">
+                                <label for="inputAdresse">Adresse</label>
+                                <input type="text" class="form-control" id="inputAdresse" name="adresse" [(ngModel)]="livreur.adresse" placeholder="Entrez votre adresse">
+                            </div>
+                            <!-- Champ Téléphone -->
+                            <div class="form-group">
+                                <label for="inputTelephone">Téléphone</label>
+                                <input type="text" class="form-control" id="inputTelephone" name="telephone" [(ngModel)]="livreur.telephone" placeholder="Entrez votre numéro de téléphone">
+                            </div>
+                             <div class="form-group">
+                                <label for="email">email</label>
+                                <input type="email" class="form-control" id="email" name="email" [(ngModel)]="livreur.email" placeholder="Entrez votre numéro de téléphone">
+                            </div>
+                            <!-- Champ date -->
+                            <div class="form-group">
+                                <label for="dateDeNaissance">D naissance</label>
+                                <input type="date" class="form-control" id="dateDeNaissance" name="dateDeNaissance" [(ngModel)]="livreur.dateNaissance" placeholder="Entrez votre date de naissance">
+                            </div>
+                            <!-- Boutons -->
+                            <button type="submit" class="btn btn-primary mr-2">Soumettre</button>
+                            <button type="reset" class="btn btn-light">Annuler</button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,18 @@
+# Forcer les fins de ligne en LF pour tous les fichiers texte
+* text=auto eol=lf
+
+# Spécifier certains types de fichiers
+*.js text eol=lf
+*.ts text eol=lf
+*.html text eol=lf
+*.css text eol=lf
+*.json text eol=lf
+*.md text eol=lf
+
+# Garder les fichiers binaires intacts
+*.png binary
+*.jpg binary
+*.jpeg binary
+*.gif binary
+*.svg binary
+*.ico binary
