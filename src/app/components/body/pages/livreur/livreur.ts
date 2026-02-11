@@ -8,11 +8,11 @@ import { Livreur as ModelLivreur } from '../../../../models/livreur';
   styleUrl: './livreur.scss',
 })
 export class Livreur {
+  livreur!:ModelLivreur;
 
   liste: boolean = true;
   ajout: boolean = false;
 
-  livreur!:ModelLivreur;
 
   affichageForm(): void{
     this.ajout = true;
@@ -24,10 +24,16 @@ export class Livreur {
     this.liste = true;
   }
 
+  recupererLivreurModif(l:ModelLivreur){
+    this.livreur=l;
+    this.affichageForm();
+  }
 
   recupererLivreAjouter(l:ModelLivreur){
     this.livreur = l;
     this.affichageListe();
   }
+
+
 
 }

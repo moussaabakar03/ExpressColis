@@ -12,6 +12,9 @@ import { Livreur } from './components/body/pages/livreur/livreur';
 import { AjoutLivreur } from './components/body/pages/livreur/ajout-livreur/ajout-livreur';
 import { ListeLivreur } from './components/body/pages/livreur/liste-livreur/liste-livreur';
 import { FormsModule } from '@angular/forms';
+import { Colis } from './components/body/pages/colis/colis';
+import { AjoutColis } from './components/body/pages/colis/ajout-colis/ajout-colis';
+import { ListeColis } from './components/body/pages/colis/liste-colis/liste-colis';
 
 @NgModule({
   declarations: [
@@ -23,7 +26,10 @@ import { FormsModule } from '@angular/forms';
     Dashbord,
     Livreur,
     AjoutLivreur,
-    ListeLivreur
+    ListeLivreur,
+    Colis,
+    AjoutColis,
+    ListeColis
   ],
   imports: [
     BrowserModule,

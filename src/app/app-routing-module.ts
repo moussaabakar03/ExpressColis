@@ -7,17 +7,15 @@ import { Dashbord } from './components/body/pages/dashbord/dashbord';
 
 const routes: Routes = [
   { path: '', redirectTo: 'dashbord', pathMatch: 'full' },
-
   { path: 'dashbord', component: Dashbord },
-
   {
     path: 'livreur',
-    component: Livreur,
-    children: [
-      { path: 'liste-livreur', component: ListeLivreur },
-      { path: 'ajout-livreur', component: AjoutLivreur },
-      { path: '', redirectTo: 'liste-livreur', pathMatch: 'full' }
-    ]
+    component: Livreur
+    // children: [
+    //   { path: 'liste-livreur', component: ListeLivreur },
+    //   { path: 'ajout-livreur', component: AjoutLivreur },
+    //   { path: '', redirectTo: 'liste-livreur', pathMatch: 'full' }
+    // ]
   }
 ];
 

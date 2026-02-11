@@ -1,4 +1,4 @@
-import { ChangeDetectorRef, Component, Input, OnInit, SimpleChanges } from '@angular/core';
+import { ChangeDetectorRef, Component, EventEmitter, Input, OnInit, Output, SimpleChanges } from '@angular/core';
 import { Livreur } from '../../../../../models/livreur';
 import { LivreurService } from '../../../../../services/livreur/livreur-service';
 import { Router } from '@angular/router';
@@ -13,33 +13,22 @@ export class ListeLivreur implements OnInit{
 
   listeLivreurs:Livreur[] = [];
   @Input() livreurAjoute!:Livreur;
+  @Output() livreurModif:EventEmitter<Livreur> = new EventEmitter();
 
-  constructor(private livreurService:LivreurService,
-      // private router: Router,
-      private cdr: ChangeDetectorRef
-
+  constructor(
+    private livreurService:LivreurService,
+    private cdr: ChangeDetectorRef
   ){}
 
-  delete(livreur: Livreur) {
-    this.livreurService.delete(livreur.id).subscribe({
-      next: () => {
-        this.listeLivreurs = this.listeLivreurs.filter(
-          l => l.id !== livreur.id
-        );
-        this.cdr.detectChanges();
-      },
-      error: (err) => {
-        console.error("Erreur suppression :", err);
-      }
-    });
-  }
-
+  // constructor(private livreurService:LivreurService){}
 
   initListeLivreur(): void {
     this.livreurService.listeLivreur().subscribe({
       next: (res: any) => {
         this.listeLivreurs = res.data;
         this.cdr.detectChanges();
+        this.listeLivreurs.push(this.livreurAjoute);
+
       },
       error: (e) => {
         console.error("Erreur récupération livreurs:", e);
@@ -47,10 +36,49 @@ export class ListeLivreur implements OnInit{
     });
   }
 
+  
+  
+  delete(livreur: Livreur) {
+    if (confirm('Êtes-vous sûr de vouloir supprimer ce livreur ?')) {
+      this.livreurService.delete(livreur.id).subscribe({
+        next: () => {
+          this.listeLivreurs = this.listeLivreurs.filter(
+            l => l.id !== livreur.id
+          );
+          this.listeLivreurs.splice(this.listeLivreurs.indexOf(livreur), 1);
+          this.cdr.detectChanges();
+        },
+        error: (err) => {
+          console.error("Erreur suppression :", err);
+        }
+      });
+    }
+  }
+
+
+  modifier(livreur:Livreur){
+    this.livreurModif.emit(livreur);
+  }
+
+
   ngOnInit(): void {
     this.initListeLivreur();
   }
   
+//   ngOnChanges(changes: SimpleChanges): void {
+//   if (changes['livreurAjoute'] && this.livreurAjoute) {
+
+//     const index = this.listeLivreurs.findIndex(
+//       l => l.id === this.livreurAjoute.id
+//     );
+
+//     if (index !== -1) {
+//       this.listeLivreurs[index] = this.livreurAjoute;
+//       this.listeLivreurs = [...this.listeLivreurs];
+//     }
+//   }
+// }
+
   // ngOnChanges(changes: SimpleChanges): void {
   //   if (changes['livreurAjoute'] && this.livreurAjoute) {
   //     this.listeLivreurs = [
