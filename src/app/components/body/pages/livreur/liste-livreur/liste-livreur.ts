@@ -1,6 +1,7 @@
-import { Component, Input, SimpleChanges } from '@angular/core';
+import { ChangeDetectorRef, Component, Input, OnInit, SimpleChanges } from '@angular/core';
 import { Livreur } from '../../../../../models/livreur';
 import { LivreurService } from '../../../../../services/livreur/livreur-service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-liste-livreur',
@@ -8,40 +9,56 @@ import { LivreurService } from '../../../../../services/livreur/livreur-service'
   templateUrl: './liste-livreur.html',
   styleUrl: './liste-livreur.scss',
 })
-export class ListeLivreur {
+export class ListeLivreur implements OnInit{
 
   listeLivreurs:Livreur[] = [];
   @Input() livreurAjoute!:Livreur;
 
-  constructor(private livreurService:LivreurService){}
+  constructor(private livreurService:LivreurService,
+      // private router: Router,
+      private cdr: ChangeDetectorRef
 
-  delete(livreur:Livreur){
-    this.listeLivreurs.splice(this.listeLivreurs.indexOf(livreur), 1);
-  }
+  ){}
 
-  initListeLivreur():void{
-    this.livreurService.listeEtudiant().subscribe({
-      next:(livreurSer:Livreur[])=>{
-        this.listeLivreurs = livreurSer;
+  delete(livreur: Livreur) {
+    this.livreurService.delete(livreur.id).subscribe({
+      next: () => {
+        this.listeLivreurs = this.listeLivreurs.filter(
+          l => l.id !== livreur.id
+        );
+        this.cdr.detectChanges();
       },
-      error:(e:any)=>{
-        console.log("erreur: "+ e);
+      error: (err) => {
+        console.error("Erreur suppression :", err);
       }
     });
   }
-  
+
+
+  initListeLivreur(): void {
+    this.livreurService.listeLivreur().subscribe({
+      next: (res: any) => {
+        this.listeLivreurs = res.data;
+        this.cdr.detectChanges();
+      },
+      error: (e) => {
+        console.error("Erreur récupération livreurs:", e);
+      }
+    });
+  }
+
   ngOnInit(): void {
     this.initListeLivreur();
   }
-
-  ngOnChanges(changes: SimpleChanges): void {
-    if (changes['livreurAjoute'] && this.livreurAjoute) {
-      this.listeLivreurs = [
-        ...this.listeLivreurs,
-        { ...this.livreurAjoute }
-      ];
-    }
-  }
+  
+  // ngOnChanges(changes: SimpleChanges): void {
+  //   if (changes['livreurAjoute'] && this.livreurAjoute) {
+  //     this.listeLivreurs = [
+  //       ...this.listeLivreurs,
+  //       { ...this.livreurAjoute }
+  //     ];
+  //   }
+  // }
 }
 
 

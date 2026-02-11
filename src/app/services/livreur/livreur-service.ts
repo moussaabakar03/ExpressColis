@@ -9,17 +9,19 @@ import { Livreur } from '../../models/livreur';
 export class LivreurService {
   constructor(private http:HttpClient){}
 
-  urlApi="http://localhost:8181/api/etudiants";
+  urlApi="http://localhost:8181/api/livreur";
 
-  listeEtudiant():Observable<Livreur[]>{
-    return this.http.get<Livreur[]>(this.urlApi);
+  listeLivreur():Observable<Livreur[]>{
+    return this.http.get<Livreur[]>(this.urlApi+"/tous");
   }
 
-  ajoutEtudiant(livreur:Livreur):Observable<Livreur>{
-    return this.http.post<Livreur>(this.urlApi, livreur);
+  ajoutLivreur(livreur:Livreur):Observable<Livreur>{
+    return this.http.post<Livreur>(this.urlApi+"/creer", livreur);
   }
 
-  // delete(id:number):Observable<any>{
-  //   return this.http.delete<Livreur>(this.urlApi+ "${livreur.id}", livreur);
-  // }
+  delete(id: number): Observable<any> {
+    return this.http.delete(`${this.urlApi}/supprimer/${id}`);
+  }
+
+
 }

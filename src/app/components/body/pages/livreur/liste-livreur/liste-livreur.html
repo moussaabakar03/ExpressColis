@@ -18,10 +18,11 @@
                                         <th scope="col">Prénom</th>
                                         <th scope="col">Téléphone</th>
                                         <th scope="col">Adresse</th>
+                                        <th scope="col">Date de naissance</th>
                                         <th scope="col">email</th>
                                         <th scope="col" class="text-center">Actions</th>
                                     </tr>
-                                </thead>
+                                </thead> 
                                 <tbody>
                                     @for (item of listeLivreurs; track item.id) {
                                         <tr>
@@ -32,6 +33,7 @@
                                             <td>{{ item.telephone }}</td>
                                             <td>{{ item.adresse }}</td>
                                             <td>{{ item.email }}</td>
+                                            <td>{{ item.dateNaissance }}</td>
                                             <td class="text-center">
                                                 <button class="btn btn-sm btn-primary">Modifier</button>
                                                 <button class="btn btn-sm btn-danger" (click)="delete(item)">Supprimer</button>
