@@ -15,6 +15,9 @@ import { FormsModule } from '@angular/forms';
 import { Colis } from './components/body/pages/colis/colis';
 import { AjoutColis } from './components/body/pages/colis/ajout-colis/ajout-colis';
 import { ListeColis } from './components/body/pages/colis/liste-colis/liste-colis';
+import { Client } from './components/body/pages/client/client';
+import { AjoutClient } from './components/body/pages/client/ajout-client/ajout-client';
+import { ListeClient } from './components/body/pages/client/liste-client/liste-client';
 
 @NgModule({
   declarations: [
@@ -29,7 +32,10 @@ import { ListeColis } from './components/body/pages/colis/liste-colis/liste-coli
     ListeLivreur,
     Colis,
     AjoutColis,
-    ListeColis
+    ListeColis,
+    Client,
+    AjoutClient,
+    ListeClient
   ],
   imports: [
     BrowserModule,

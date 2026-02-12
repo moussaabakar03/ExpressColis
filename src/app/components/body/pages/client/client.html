@@ -1,18 +1,15 @@
 
 @if(liste){
-    <h1 style="text-align: center;">Liste des livreur</h1>
+    <h1 style="text-align: center;">Liste des clients</h1>
     <button type="button" (click)="affichageForm()" class="btn btn-secondary w-50" style="display: block; margin: 0 auto;">Ajout livreur</button>
-    <app-liste-livreur [livreurAjoute]="livreur" (livreurModif)="recupererLivreurModif($event)"></app-liste-livreur>
+    <app-liste-client [clientAjoute]="client" (clientModif)="recupererClientModif($event)"></app-liste-client>
 }
 @else {
     <h1 style="text-align: center;">{{ titre }}</h1>
     <button type="button" (click)="affichageListe()" class="btn btn-secondary w-50" style="display: block; margin: 0 auto;">Liste livreur</button>
-    <app-ajout-livreur
-        [livreurModif]="livreur"
-        (livreurEmitter)="recupererLivreAjouter($event)">
-    </app-ajout-livreur>
+    <app-ajout-client
+        [clientModif]="client"
+        (clientEmitter)="recupererClientAjouter($event)">
+    </app-ajout-client>
 
 }
-
-<!-- <router-outlet></router-outlet> -->
-

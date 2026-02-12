@@ -1,0 +1,49 @@
+<!-- <div class="main-panel">         -->
+    <div class="content-wrapper">
+        <div class="row">
+            <div class="col-12 grid-margin stretch-card">
+                <div class="card">
+                    <div class="card-body">
+                        <h4 class="card-title">Formulaire Client </h4>
+                        <p class="card-description">
+                            Veuillez remplir les informations ci-dessous 
+                        </p>
+                        <form class="forms-sample" (ngSubmit)="traitementFormulaire()">
+                            <!-- Champ Nom -->
+                            <div class="form-group">
+                                <label for="inputNom">Nom </label>
+                                <input type="text" class="form-control" id="inputNom" name="nom" [(ngModel)]="client.nom" placeholder="Entrez votre nom">
+                            </div>
+
+                            <!-- Champ Prénom -->
+                            <div class="form-group">
+                                <label for="inputPrenom">Prénom</label>
+                                <input type="text" class="form-control" id="inputPrenom" name="prenom" [(ngModel)]="client.prenom" placeholder="Entrez votre prénom">
+                                 <!-- @if (form.submitted && client.prenom.length < 2) {
+                                    <div>Le prenom doit contenir plus de 2 caractère</div>
+                                } -->
+                            </div>
+                            <!-- Champ Adresse -->
+                            <div class="form-group">
+                                <label for="inputAdresse">Adresse</label>
+                                <input type="text" class="form-control" id="inputAdresse" name="adresse" [(ngModel)]="client.adresse" placeholder="Entrez votre adresse">
+                            </div>
+                            <!-- Champ Téléphone -->
+                            <div class="form-group">
+                                <label for="inputTelephone">Téléphone</label>
+                                <input type="text" class="form-control" id="inputTelephone" name="telephone" [(ngModel)]="client.telephone" placeholder="Entrez votre numéro de téléphone">
+                            </div>
+                             <div class="form-group">
+                                <label for="role">Rôle</label>
+                                <input type="email" class="form-control" id="role" name="role" [(ngModel)]="client.role" placeholder="Entrez le rôle">
+                            </div>
+                            <!-- Boutons -->
+                            <button type="submit" class="btn btn-primary mr-2">{{namebutton}}</button>
+                            <button type="reset" class="btn btn-light">Annuler</button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    <!-- </div> -->
+</div>

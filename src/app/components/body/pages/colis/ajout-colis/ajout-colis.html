@@ -1,1 +1,97 @@
-<p>ajout-colis works!</p>
+<div class="content-wrapper">
+  <div class="row">
+    <div class="col-12 grid-margin stretch-card">
+      <div class="card">
+        <div class="card-body">
+          <h4 class="card-title">Formulaire Colis</h4>
+          <p class="card-description">
+            Veuillez remplir les informations du colis
+          </p>
+
+          <form class="forms-sample" (ngSubmit)="traitementFormulaire()">
+
+            <!-- Type de colis -->
+            <div class="form-group">
+              <label for="typeColis">Type de colis</label>
+              <input
+                type="text"
+                class="form-control"
+                id="typeColis"
+                name="typeColis"
+                [(ngModel)]="colis.typeColis"
+                placeholder="Ex: Fragile, Alimentaire..."
+                required
+              >
+            </div>
+
+            <!-- Poids -->
+            <div class="form-group">
+              <label for="poids">Poids (kg)</label>
+              <input
+                type="number"
+                class="form-control"
+                id="poids"
+                name="poids"
+                [(ngModel)]="colis.poids"
+                placeholder="Ex: 2.5"
+                step="0.01"
+                required
+              >
+            </div>
+
+            <!-- Adresse Expéditeur -->
+            <div class="form-group">
+              <label for="adresseExpediteur">Adresse Expéditeur</label>
+              <input
+                type="text"
+                class="form-control"
+                id="adresseExpediteur"
+                name="adresseExpediteur"
+                [(ngModel)]="colis.adresseExpediteur"
+                placeholder="Adresse de l'expéditeur"
+                required
+              >
+            </div>
+
+            <!-- Adresse Destinataire -->
+            <div class="form-group">
+              <label for="adresseDestinateur">Adresse Destinataire</label>
+              <input
+                type="text"
+                class="form-control"
+                id="adresseDestinateur"
+                name="adresseDestinateur"
+                [(ngModel)]="colis.adresseDestinateur"
+                placeholder="Adresse du destinataire"
+                required
+              >
+            </div>
+
+            <!-- Description -->
+            <div class="form-group">
+              <label for="description">Description</label>
+              <textarea
+                class="form-control"
+                id="description"
+                name="description"
+                rows="3"
+                [(ngModel)]="colis.description"
+                placeholder="Description du colis (facultatif)">
+              </textarea>
+            </div>
+
+            <!-- Boutons -->
+            <button type="submit" class="btn btn-primary mr-2">
+              {{ namebutton }}
+            </button>
+            <button type="reset" class="btn btn-light">
+              Annuler
+            </button>
+
+          </form>
+
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

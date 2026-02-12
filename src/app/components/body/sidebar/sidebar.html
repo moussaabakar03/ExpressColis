@@ -12,7 +12,20 @@
                 <span class="menu-title">Livreurs</span>
             </a>
         </li>
-        
+
+        <li class="nav-item">
+            <a class="nav-link" routerLink="/client">
+                <i class="icon-columns menu-icon"></i>
+                <span class="menu-title">Clients</span>
+            </a>
+        </li>
+
+        <!-- <li class="nav-item">
+            <a class="nav-link" routerLink="/colis">
+                <i class="icon-bar-graph menu-icon"></i>
+                <span class="menu-title">Colis</span>
+            </a>
+        </li> -->
         <!-- <li class="nav-item">
             <a class="nav-link" data-toggle="collapse" href="#form-elements" aria-expanded="false" aria-controls="form-elements">
                 <i class="icon-columns menu-icon"></i>
@@ -33,14 +46,21 @@
         <li class="nav-item">
         <a class="nav-link" data-toggle="collapse" href="#charts" aria-expanded="false" aria-controls="charts">
             <i class="icon-bar-graph menu-icon"></i>
-            <span class="menu-title">Charts</span>
+            <span class="menu-title">Colis</span>
             <i class="menu-arrow"></i>
         </a>
         <div class="collapse" id="charts">
             <ul class="nav flex-column sub-menu">
-            <li class="nav-item"> <a class="nav-link" href="pages/charts/chartjs.html">ChartJs</a></li>
+                <li class="nav-item"> <a class="nav-link" routerLink="/colis">colis</a></li>
             </ul>
         </div>
+
+        <div class="collapse" id="charts">
+            <ul class="nav flex-column sub-menu">
+            <li class="nav-item"><a class="nav-link" routerLink="/livreur/ajout-livreur">Livraison</a></li>
+            </ul>
+        </div>
+
         </li>
         <li class="nav-item">
         <a class="nav-link" data-toggle="collapse" href="#tables" aria-expanded="false" aria-controls="tables">

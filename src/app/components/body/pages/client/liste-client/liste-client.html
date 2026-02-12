@@ -4,32 +4,32 @@
             <div class="col-lg-12 grid-margin stretch-card">
                 <div class="card">
                     <div class="card-body">
-                        <h4 class="card-title">Liste des colis</h4>
+                        <h4 class="card-title">Liste des clients</h4>
                         <p class="card-description">
-                            Tableau des informations des colis
+                            Tableau des informations des clients
                         </p>
                         <div class="table-responsive">
                             <table class="table table-striped">
                                 <thead>
                                     <tr>
                                         <th scope="col">#</th>
-                                        <th scope="col">typeColis</th>
-                                        <th scope="col">poids</th>
-                                        <th scope="col">Adresse d'expediteur</th>
-                                        <th scope="col">Adresse destinateur</th>
-                                        <th scope="col">Description</th>
+                                        <th scope="col">Nom</th>
+                                        <th scope="col">Prénom</th>
+                                        <th scope="col">Téléphone</th>
+                                        <th scope="col">Adresse</th>
+                                        <th scope="col">Rôle</th>
                                         <th scope="col" class="text-center">Actions</th>
                                     </tr>
                                 </thead> 
                                 <tbody>
-                                    @for (item of listeColis; track item.id) {
+                                    @for (item of listeClients; track item.id) {
                                         <tr>
                                             <td class="py-1">{{item.id}}</td>
-                                            <td>{{ item.typeColis }}</td>
-                                            <td>{{ item.poids }}</td>
-                                            <td>{{ item.adresseExpediteur }}</td>
-                                            <td>{{ item.adresseDestinateur }}</td>
-                                            <td>{{ item.description }}</td>
+                                            <td>{{ item.nom }}</td>
+                                            <td>{{ item.prenom }}</td>
+                                            <td>{{ item.telephone }}</td>
+                                            <td>{{ item.adresse }}</td>
+                                            <td>{{ item.role }}</td>
                                             <td class="text-center">
                                                 <button class="btn btn-sm btn-primary" (click)="modifier(item)">Modifier</button>
                                                 <button class="btn btn-sm btn-danger" (click)="delete(item)">Supprimer</button>

@@ -9,6 +9,8 @@ import { Livreur as ModelLivreur } from '../../../../models/livreur';
 })
 export class Livreur {
   livreur!:ModelLivreur;
+  titre:String = "AJout de livreur";
+
 
   liste: boolean = true;
   ajout: boolean = false;
@@ -27,6 +29,7 @@ export class Livreur {
   recupererLivreurModif(l:ModelLivreur){
     this.livreur=l;
     this.affichageForm();
+    this.titre ="Modifier infos livreur ";
   }
 
   recupererLivreAjouter(l:ModelLivreur){

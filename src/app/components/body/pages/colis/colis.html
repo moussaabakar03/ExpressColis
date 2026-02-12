@@ -1,1 +1,15 @@
-<p>colis works!</p>
+
+@if(liste){
+    <h1 style="text-align: center;">Liste des colis</h1>
+    <button type="button" (click)="affichageForm()" class="btn btn-secondary w-50" style="display: block; margin: 0 auto;">Ajout colis</button>
+    <app-liste-colis [colisAjoute]="colis" (colisModif)="recupererColisModif($event)"></app-liste-colis>
+}
+@else {
+    <h1 style="text-align: center;">{{ titre }}</h1>
+    <button type="button" (click)="affichageListe()" class="btn btn-secondary w-50" style="display: block; margin: 0 auto;">Liste colis</button>
+    <app-ajout-colis
+        [colisModif]="colis"
+        (colisEmitter)="recupererColisAjouter($event)">
+    </app-ajout-colis>
+
+}
