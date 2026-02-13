@@ -1,0 +1,81 @@
+<div class="content-wrapper">
+  <div class="row">
+    <div class="col-lg-12 grid-margin stretch-card">
+      <div class="card">
+        <div class="card-body">
+          <h4 class="card-title">Liste des livraisons</h4>
+          <p class="card-description">
+            Tableau des informations des livraisons
+          </p>
+
+          <div class="table-responsive">
+            <table class="table table-striped">
+              <thead>
+                <tr>
+                  <th>#</th>
+                  <th>Client</th>
+                  <th>Type Colis</th>
+                  <th>Livreur</th>
+                  <th>Statut</th>
+                  <th>Date Livraison</th>
+                  <th class="text-center">Actions</th>
+                </tr>
+              </thead>
+
+              <tbody>
+                @for (item of listeLivraisons; track item.id) {
+                  <tr>
+                    <td>{{ item.id }}</td>
+
+                    <!-- Client via Colis -->
+                    <td>{{ item.colisId }}</td>
+
+                    <!-- Type colis -->
+                    <td>{{ item.colisId }}</td>
+
+                    <!-- Livreur -->
+                    <td>{{ item.livreurId }}</td>
+
+                    <!-- Statut -->
+                    <td>
+                        <span 
+                            [ngClass]="{
+                            'badge bg-warning': item.statutLivraison === 'EN_ATTENTE',
+                            'badge bg-primary': item.statutLivraison === 'EN_COURS',
+                            'badge bg-success': item.statutLivraison === 'LIVREE',
+                            'badge bg-danger': item.statutLivraison === 'ANNULEE'
+                            }">
+                            {{ item.statutLivraison }}
+                        </span>
+                    </td>
+
+
+                    <!-- Date -->
+                    <td>
+                      {{ item.dateLivraison | date:'dd/MM/yyyy HH:mm' }}
+                    </td>
+
+                    <!-- Actions -->
+                    <td class="text-center">
+                      <button class="btn btn-sm btn-primary"
+                              (click)="modifier(item)">
+                        Modifier
+                      </button>
+
+                      <button class="btn btn-sm btn-danger"
+                              (click)="delete(item)">
+                        Supprimer
+                      </button>
+                    </td>
+                  </tr>
+                }
+              </tbody>
+
+            </table>
+          </div>
+
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

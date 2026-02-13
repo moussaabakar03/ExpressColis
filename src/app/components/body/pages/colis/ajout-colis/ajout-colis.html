@@ -80,6 +80,15 @@
               </textarea>
             </div>
 
+            <div class="form-group">
+              <label for="client_id">Client</label>
+              <select name="client_id" class="form-control"  [(ngModel)]="colis.client">
+                @for (item of clients; track $index) {
+                  <option value="{{ item.id }}">{{ item.nom }}- {{ item.prenom }}</option>
+                }
+              </select>
+            </div>
+
             <!-- Boutons -->
             <button type="submit" class="btn btn-primary mr-2">
               {{ namebutton }}

@@ -22,11 +22,10 @@ export class ListeClient implements OnInit{
 
   initListeClient(): void {
     this.clientService.listeClient().subscribe({
-      next: (res: any) => {
+      next: (res: Client[]) => {
         this.listeClients = res;
         this.cdr.detectChanges();
-        this.listeClients.push(this.clientAjoute);
-
+        console.log(this.listeClients);
       },
       error: (e) => {
         console.error("Erreur récupération clients:", e);
@@ -36,7 +35,7 @@ export class ListeClient implements OnInit{
 
   
   
-  delete(client: Client) {
+  suppresion(client: Client) {
     if (confirm('Êtes-vous sûr de vouloir supprimer ce client ?')) {
       this.clientService.delete(client.id).subscribe({
         next: () => {
@@ -61,6 +60,9 @@ export class ListeClient implements OnInit{
 
   ngOnInit(): void {
     this.initListeClient();
+    if(this.clientAjoute){
+        this.listeClients.push(this.clientAjoute);
+    }
   }
   
 }

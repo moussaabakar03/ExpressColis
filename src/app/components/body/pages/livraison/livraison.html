@@ -1,0 +1,15 @@
+
+@if(liste){
+    <h1 style="text-align: center;">Liste des Livraisons</h1>
+    <button type="button" (click)="affichageForm()" class="btn btn-secondary w-50" style="display: block; margin: 0 auto;">Ajout colis</button>
+    <app-liste-livraison [livraisonAjoute]="livraison" (livraisonModif)="recupererLivraisonModif($event)"></app-liste-livraison>
+}
+@else {
+    <h1 style="text-align: center;">{{ titre }}</h1>
+    <button type="button" (click)="affichageListe()" class="btn btn-secondary w-50" style="display: block; margin: 0 auto;">Liste colis</button>
+    <app-ajout-livraison
+        [livraisonModif]="livraison"
+        (livraisonEmitter)="recupererLivraisonAjouter($event)">
+    </app-ajout-livraison>
+
+}

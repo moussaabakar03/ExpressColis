@@ -15,6 +15,8 @@ export class ListeLivreur implements OnInit{
   @Input() livreurAjoute!:Livreur;
   @Output() livreurModif:EventEmitter<Livreur> = new EventEmitter();
 
+  chargement:boolean = true;
+
   constructor(
     private livreurService:LivreurService,
     private cdr: ChangeDetectorRef
@@ -23,12 +25,14 @@ export class ListeLivreur implements OnInit{
   // constructor(private livreurService:LivreurService){}
 
   initListeLivreur(): void {
+    this.chargement = true;
     this.livreurService.listeLivreur().subscribe({
       next: (res: any) => {
         this.listeLivreurs = res.data;
         this.cdr.detectChanges();
         this.listeLivreurs.push(this.livreurAjoute);
-
+        // console.log(this.listeLivreurs);
+        this.chargement = false;
       },
       error: (e) => {
         console.error("Erreur récupération livreurs:", e);

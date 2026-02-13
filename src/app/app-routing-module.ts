@@ -6,21 +6,15 @@ import { ListeLivreur } from './components/body/pages/livreur/liste-livreur/list
 import { Dashbord } from './components/body/pages/dashbord/dashbord';
 import { Colis } from './components/body/pages/colis/colis';
 import { Client } from './components/body/pages/client/client';
+import { Livraison } from './components/body/pages/livraison/livraison';
 
 const routes: Routes = [
   { path: '', redirectTo: 'dashbord', pathMatch: 'full' },
   { path: 'dashbord', component: Dashbord },
-  {
-    path: 'livreur',
-    component: Livreur
-    // children: [
-    //   { path: 'liste-livreur', component: ListeLivreur },
-    //   { path: 'ajout-livreur', component: AjoutLivreur },
-    //   { path: '', redirectTo: 'liste-livreur', pathMatch: 'full' }
-    // ]
-  },
+  {path: 'livreur', component: Livreur },
   { path: 'colis', component: Colis },
   { path: 'client', component: Client },
+  { path: 'livraison', component: Livraison },
 
 ];
 

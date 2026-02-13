@@ -1,0 +1,75 @@
+<div class="content-wrapper">
+  <div class="card">
+    <div class="card-body">
+
+      <h4 class="card-title">Formulaire Livraison</h4>
+
+      <form (ngSubmit)="traitementFormulaire()">
+
+        <!-- Colis -->
+        <div class="form-group">
+          <label>Colis</label>
+          <select class="form-control"
+                  [(ngModel)]="livraison.colisId"
+                  name="colisId"
+                  required>
+
+            @for (item of colisList; track item.id) {
+              <option [value]="item.id">
+                Colis #{{ item.id }} - {{ item.typeColis }}
+              </option>
+            }
+
+          </select>
+        </div>
+
+        <!-- Livreur -->
+        <div class="form-group">
+          <label>Livreur</label>
+          <select class="form-control"
+                  [(ngModel)]="livraison.livreurId"
+                  name="livreurId"
+                  required>
+
+            @for (item of livreurList; track item.id) {
+              <option [value]="item.id">
+                {{ item.nom }} {{ item.prenom }}
+              </option>
+            }
+
+          </select>
+        </div>
+
+        <!-- Statut -->
+        <div class="form-group">
+          <label>Statut Livraison</label>
+          <select class="form-control"
+                  [(ngModel)]="livraison.statutLivraison"
+                  name="statutLivraison"
+                  required>
+            <option value="EN_ATTENTE">En attente</option>
+            <option value="EN_COURS">En cours</option>
+            <option value="LIVREE">Livrée</option>
+            <option value="ANNULEE">Annulée</option>
+          </select>
+        </div>
+
+        <!-- Date -->
+        <div class="form-group">
+          <label>Date Livraison</label>
+          <input type="date"
+                 class="form-control"
+                 [(ngModel)]="livraison.dateLivraison"
+                 name="dateLivraison"
+                 required>
+        </div>
+
+        <button type="submit" class="btn btn-primary">
+          {{ namebutton }}
+        </button>
+
+      </form>
+
+    </div>
+  </div>
+</div>

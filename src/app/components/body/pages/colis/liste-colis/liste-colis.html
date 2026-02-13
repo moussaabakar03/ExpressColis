@@ -13,6 +13,7 @@
                                 <thead>
                                     <tr>
                                         <th scope="col">#</th>
+                                        <th scope="col">Client</th>
                                         <th scope="col">typeColis</th>
                                         <th scope="col">poids</th>
                                         <th scope="col">Adresse d'expediteur</th>
@@ -25,6 +26,7 @@
                                     @for (item of listeColis; track item.id) {
                                         <tr>
                                             <td class="py-1">{{item.id}}</td>
+                                            <td>{{ item.client }}</td>
                                             <td>{{ item.typeColis }}</td>
                                             <td>{{ item.poids }}</td>
                                             <td>{{ item.adresseExpediteur }}</td>

@@ -18,6 +18,9 @@ import { ListeColis } from './components/body/pages/colis/liste-colis/liste-coli
 import { Client } from './components/body/pages/client/client';
 import { AjoutClient } from './components/body/pages/client/ajout-client/ajout-client';
 import { ListeClient } from './components/body/pages/client/liste-client/liste-client';
+import { Livraison } from './components/body/pages/livraison/livraison';
+import { AjoutLivraison } from './components/body/pages/livraison/ajout-livraison/ajout-livraison';
+import { ListeLivraison } from './components/body/pages/livraison/liste-livraison/liste-livraison';
 
 @NgModule({
   declarations: [
@@ -35,7 +38,10 @@ import { ListeClient } from './components/body/pages/client/liste-client/liste-c
     ListeColis,
     Client,
     AjoutClient,
-    ListeClient
+    ListeClient,
+    Livraison,
+    AjoutLivraison,
+    ListeLivraison
   ],
   imports: [
     BrowserModule,
